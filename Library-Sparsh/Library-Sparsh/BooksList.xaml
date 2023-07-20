@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Library_Sparsh.BooksList"
+             Appearing="BookList_Appearing"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="xCheckout" Order="Primary" Text="Checkout" Clicked="Checkout_Clicked"/>
+        <ToolbarItem x:Name="xReturn" Order="Primary" Text="Return" Clicked="Return_Clicked"/>
+
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="Books List" FontSize="30" HorizontalTextAlignment="Center" Padding="10"/>
+        <Label x:Name="lblName" TextColor="CornflowerBlue" HorizontalTextAlignment="Center" FontSize="20" Padding="5"/>
+        <ListView x:Name="xBooks" 
+                  ItemTapped="xBooks_ItemTapped"
+                  ItemSelected="xBooks_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell TextColor="Blue" Text="{Binding  xBookName}" Detail="{Binding xBookDetail}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label x:Name="xMessage" Padding="9" BackgroundColor="Beige" IsVisible="false" FontSize="16" TextColor="DarkRed"/>
+
+    </StackLayout>
+
+</ContentPage>
